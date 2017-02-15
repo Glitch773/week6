@@ -23,29 +23,38 @@ var Card = require('./components/Card')
 // END OF STUFF TO NOT MODIFY
 
 var App = React.createClass({
+  givemecards: function() {
+    var tempCards = getDeck().shuffle().splice(0,5);
+    this.setState({hand: tempCards})
+  },
+  getInitialState: function() {
+    return {
+      hand: ["face_down", "face_down","face_down","face_down","face_down"]
+    }
+  },
   render: function() {
     return (
       <div>
         <h1>Welcome to the KIEI-924 Casino!</h1>
         <div className="row">
-          <div className="col-sm-2">
-            <h1><img className="img-responsive" src={"http://golearntocode.com/images/cards/" + "face_down" + ".png"} /></h1>
-          </div>
-          <div className="col-sm-2">
-            <h1><img className="img-responsive" src={"http://golearntocode.com/images/cards/" + "face_down" + ".png"} /></h1>
-          </div>
-          <div className="col-sm-2">
-            <h1><img className="img-responsive" src={"http://golearntocode.com/images/cards/" + "face_down" + ".png"} /></h1>
-          </div>
-          <div className="col-sm-2">
-            <h1><img className="img-responsive" src={"http://golearntocode.com/images/cards/" + "face_down" + ".png"} /></h1>
-          </div>
-          <div className="col-sm-2">
-            <h1><img className="img-responsive" src={"http://golearntocode.com/images/cards/" + "face_down" + ".png"} /></h1>
-          </div>
-          <div className="col-sm-2">
-            <h1><a href="#" className="btn btn-success">Deal</a></h1>
-          </div>
+            <div>
+              <h1><a href="#" className="btn btn-success" onClick={this.givemecards}>Deal</a></h1>
+            </div>
+            <div className="col-sm-2">
+              <Card card={this.state.hand[0]} />
+            </div>
+            <div className="col-sm-2">
+              <Card card={this.state.hand[1]} />
+            </div>
+            <div className="col-sm-2">
+              <Card card={this.state.hand[2]} />
+            </div>
+            <div className="col-sm-2">
+              <Card card={this.state.hand[3]} />
+            </div>
+            <div className="col-sm-2">
+              <Card card={this.state.hand[4]} />
+            </div>
         </div>
       </div>
     )
