@@ -37,7 +37,6 @@ var App = React.createClass({
       <div>
         <h1>Welcome to the KIEI-924 Casino!</h1>
         <div className="row">
-            <div>
               <h1><a href="#" className="btn btn-success" onClick={this.givemecards}>Deal</a></h1>
             </div>
             <div className="col-sm-2">
@@ -53,7 +52,7 @@ var App = React.createClass({
               <Card card={this.state.hand[3]} />
             </div>
             <div className="col-sm-2">
-              <Card card={this.state.hand[4]} />
+                    <Card card={this.state.hand[4]} />
             </div>
         </div>
       </div>
